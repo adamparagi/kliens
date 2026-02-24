@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript alapok</title>
+</head>
+<body>
+    <h1>Javascript alapok</h1>
+    <script>
+        // output
+        console.log('Helló világ');
+        console.error('Példa hibaüzenet');
+
+        document.write('Helló Világ');
+        //window.alert('Helló Világ');
+
+        /* változók */
+        // deklaráció
+        x = 10;  // nem javasolt így
+
+        var a = 10;
+        console.log(a);
+        var a = 20;
+        console.log(a);
+        console.log(b);
+        var b = 1; // hoisting
+        console.log(b);
+
+        let c = 10; // let, nem lehet felüldeklarálni
+        console.log(c);
+        //let c = 20; 
+        { // blokkon belül tudom használni
+            let c = 20; // blokk hatókörű
+            console.log(c);
+            let d = 100;
+        }
+        // console.log(d); // nem látom a d-t, letes változó a blokkjában él.
+        // Típusok 
+        console.log(typeof a);
+        a = "Mekk Elek";
+        console.log(typeof a);
+        console.log(Number(a));
+        a = "1a2";
+        console.log(Number(a));
+
+        /* Konstans */
+        const pi = 3.14;
+        console.log(pi);
+        // pi = 3.141; // értéke nem változtatható
+        // const pi = 3.141; // nem felüldeklarálható
+        { // blokk hatókörű
+            let pi = 3.141;
+            console.log(pi);
+        
+        }
+
+        /*Operátorok*/
+        // ugyanaz mint máshol
+
+        console.log(10 == '10'); // értéket vizsgál /true
+        console.log(10 === '10'); // típusát és értékét is vizsgálja /false
+        console.log(10+20); //összefűz
+        console.log('10'+'20'); //összefűz
+        console.log(10+'20'); //összefűz
+        console.log(10+20+'30'); //balról jobbra páronként végzi el
+
+        /* Vezérlési szerkezetek */
+        // feltételes operátorok ternary operátor
+        console.log(10<20 ? 'igaz' : 'hamis');
+        // feltételes utasítás
+        if (10<20) {
+            console.log('igaz');
+        } else {
+            console.log('hamis');
+        }
+        // többágú: switch
+
+        // ciklusok
+        for(let i = 1; i<=10;i++){
+            console.log(i);
+        }
+
+        // while, do while
+
+        /* függvények */
+        function hello() {
+            console.log('Hello Világ');
+        }
+        hello();
+        const helloVki = function( nev = 'Idegen'){
+            console.log('Hello ' + nev);
+        }
+        helloVki('Mekk ELek');
+
+        const osszeg = function(a, b=0) {
+            return a + b;
+        }
+        console.log(osszeg(10,20));
+        console.log(osszeg); // a függvény leírása
+
+        const szorzat = (a,b=1) => {
+            return a*b;
+        }
+        console.log(szorzat(5,6));
+
+        const negyzet = a => a*a;
+        console.log(negyzet(10));
+
+        //callback függvény
+        const szamol = function(a,b,muvelet) {
+            return muvelet(a,b);
+        }
+        console.log(szamol(5,10,osszeg));
+        console.log(szamol(5,10,szorzat));
+        console.log(szamol(5,10,function(a,b){
+            return a-b;
+        }))
+
+    </script>
+</body>
+</html>
